@@ -1,4 +1,4 @@
-﻿import datetime as dt
+import datetime as dt
 import pandas as pd
 import streamlit as st
 import sqlite3
@@ -47,7 +47,7 @@ def smart_upload_process(file_data, filename):
         return True, f" File ready for upload! Saved to Desktop and SharePoint opened.", file_path
         
     except Exception as e:
-        return False, f"❌ Save failed: {str(e)}", ""
+        return False, f"? Save failed: {str(e)}", ""
 
 def init_db():
     """Initialize the database."""
@@ -176,7 +176,7 @@ with tab1:
     
     col1, col2 = st.columns([1, 3])
     with col1:
-        if st.button("💾 Save Data", type="primary"):
+        if st.button("?? Save Data", type="primary"):
             try:
                 data_to_save = []
                 for _, row in edited_df.iterrows():
@@ -248,14 +248,14 @@ with tab2:
             )
         
         with col3:
-            if st.button("🌐 Open SharePoint", type="secondary"):
+            if st.button("?? Open SharePoint", type="secondary"):
                 webbrowser.open(SHAREPOINT_FOLDER_URL)
                 st.success(" SharePoint opened")
         
         # Instructions
         st.subheader(" SMART Upload Process")
         st.info("**How it works (Network Security Compatible):**")
-        st.write("1. 📁 **Auto-Save** - File automatically saved to Desktop\\SharePoint_Ready")
+        st.write("1. ?? **Auto-Save** - File automatically saved to Desktop\\SharePoint_Ready")
         st.write("2.  **Auto-Open** - SharePoint folder opens in your browser")
         st.write("3.  **Easy Access** - File ready in convenient Desktop location")
         st.write("4.  **Drag & Drop** - Simply drag file from Desktop to SharePoint")
@@ -275,7 +275,7 @@ with tab2:
         st.write(f"**File size:** {len(excel_data):,} bytes")
         
     else:
-        st.warning("⚠️ No data available for the selected sprint period.")
+        st.warning("?? No data available for the selected sprint period.")
         st.info(" Go to 'Team Data Entry' tab to add productivity data first.")
 
 # Admin tab
@@ -310,7 +310,7 @@ with tab3:
                 st.success(" All data cleared!")
                 st.rerun()
     else:
-        st.info("**Admin Credentials:** Username: Adityakarthik | Password: admin123")
+        st.info("?? **Admin Login Required** - Contact admin for access")
 
 st.divider()
 st.caption("Sprint Productivity Tracker v8.0 | SMART SharePoint Upload | Network Security Compatible")
